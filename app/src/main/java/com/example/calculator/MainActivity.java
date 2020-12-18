@@ -2,22 +2,15 @@ package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
-import com.example.calculator.historyRecycler.HistoryList;
-import com.example.calculator.historyRecycler.MyDialogFragment;
-import com.example.calculator.historyRecycler.Pojo;
 import com.example.calculator.presenter.InfLogic;
 import com.example.calculator.presenter.logic;
 
-import java.util.ArrayList;
-
 
 public class MainActivity extends AppCompatActivity implements InfView {
-
-    ArrayList<Pojo> data;
 
     TextView tvDisplay,tvAns;
     TextView tvClear,tvDelete;
@@ -77,14 +70,13 @@ public class MainActivity extends AppCompatActivity implements InfView {
         tvPoint=findViewById(R.id.tvPoint);
 
         TextView tvResultHistory = findViewById(R.id.tvResultHistory);
-        tvResultHistory.setEnabled(false);
-//        tvResultHistory.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                MyDialogFragment myDialogFragment = new MyDialogFragment();
-//                myDialogFragment.show(getSupportFragmentManager(),"MyFragment");
-//            }
-//        });
+        tvResultHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                startActivity(intent);
+            }
+        });
 
         tvAdd.setOnClickListener(new View.OnClickListener() {
             @Override
